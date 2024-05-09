@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3 uid="uid://nle103ifoxba"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_heoox"]
+[ext_resource type="PackedScene" uid="uid://j0unew7d0m37" path="res://player.tscn" id="2_2eimo"]
+[ext_resource type="PackedScene" uid="uid://b55qv2khy3t4w" path="res://spikes.tscn" id="3_tsclw"]
+[ext_resource type="PackedScene" uid="uid://gm3mupnk0jew" path="res://burbuja.tscn" id="4_4lsjj"]
+[ext_resource type="PackedScene" uid="uid://45id4lwwirrm" path="res://contador_vida.tscn" id="5_bp2yr"]
+[ext_resource type="Script" path="res://contador_vida.gd" id="6_a0d1s"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_heoox")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-2, -56)
+polygon = PackedVector2Array(0, 1, 29, 0, 29, 146, 62, 146, 84, 157, 118, 157, 129, 133, 148, 133, 148, 168, 216, 168, 217, 134, 240, 133, 286, 145, 311, 132, 310, 3, 320, 2, 322, 183, 2, 182)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
+color = Color(0.305882, 0.243137, 0.458824, 1)
+
+[node name="player" parent="." instance=ExtResource("2_2eimo")]
+position = Vector2(80, 77)
+floor_constant_speed = true
+
+[node name="Spikes" parent="." instance=ExtResource("3_tsclw")]
+position = Vector2(146, 112)
+
+[node name="Spikes2" parent="." instance=ExtResource("3_tsclw")]
+position = Vector2(154, 112)
+
+[node name="Spikes3" parent="." instance=ExtResource("3_tsclw")]
+position = Vector2(162, 112)
+
+[node name="Spikes4" parent="." instance=ExtResource("3_tsclw")]
+position = Vector2(165, 112)
+
+[node name="Spikes5" parent="." instance=ExtResource("3_tsclw")]
+position = Vector2(173, 112)
+
+[node name="Spikes6" parent="." instance=ExtResource("3_tsclw")]
+position = Vector2(181, 112)
+
+[node name="Spikes7" parent="." instance=ExtResource("3_tsclw")]
+position = Vector2(188, 112)
+
+[node name="Spikes8" parent="." instance=ExtResource("3_tsclw")]
+position = Vector2(196, 112)
+
+[node name="Spikes9" parent="." instance=ExtResource("3_tsclw")]
+position = Vector2(206, 112)
+
+[node name="Spikes10" parent="." instance=ExtResource("3_tsclw")]
+position = Vector2(201, 112)
+
+[node name="burbuja" parent="." instance=ExtResource("4_4lsjj")]
+position = Vector2(42, 79)
+
+[node name="burbuja2" parent="." instance=ExtResource("4_4lsjj")]
+position = Vector2(282, 73)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" parent="CanvasLayer" instance=ExtResource("5_bp2yr")]
+script = ExtResource("6_a0d1s")
+
+[node name="burbuja3" parent="." instance=ExtResource("4_4lsjj")]
+position = Vector2(136, 67)
+
+[node name="burbuja4" parent="." instance=ExtResource("4_4lsjj")]
+position = Vector2(190, 41)
+
+[connection signal="new_vida" from="player" to="CanvasLayer/ColorRect" method="_on_player_new_vida"]

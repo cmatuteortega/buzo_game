@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Animations/Untitled_Artwork (2).png" type="Texture2D" id=1]
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 0.529545 ), 0.0, 2.34935, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
+
+[sub_resource type="ParticleProcessMaterial" id=1]
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 37.8
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 60.61
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale_random = 0.9
+scale_curve = SubResource( 3 )
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+emitting = false
+amount = 1
+one_shot = true
+speed_scale = 0.2
+randomness = 0.24
+process_material = SubResource( 1 )
+texture = ExtResource( 1 )

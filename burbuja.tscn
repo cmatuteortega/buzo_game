@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://gm3mupnk0jew"]
+
+[ext_resource type="Script" path="res://burbuja.gd" id="1_oplpi"]
+[ext_resource type="Texture2D" uid="uid://cj6m0ykyheo1r" path="res://bubble.png" id="1_twgma"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_copgc"]
+radius = 5.0
+
+[node name="burbuja" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_oplpi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_copgc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_twgma")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

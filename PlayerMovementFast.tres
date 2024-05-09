@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PlayerMovementDefault" load_steps=2 format=3 uid="uid://b0ysjln3jxnh"]
+
+[ext_resource type="Script" path="res://PlayerMovementDefault.gd" id="1_vgc4f"]
+
+[resource]
+script = ExtResource("1_vgc4f")
+speed = 200.0
+jump_velocity = -10.0
+acceleration = 700
+friction = 1000
+gravity_scale = 1.0
